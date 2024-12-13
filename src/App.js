@@ -11,8 +11,17 @@ import { Flipper, Flipped } from 'react-flip-toolkit';
 
 function App() {
   const initialTeams = [
+    { Equipe: 'Arcanjo Miguel', Gold: 0, Silver: 0, Bronze: 0 },
+    { Equipe: 'Black Dragon', Gold: 0, Silver: 0, Bronze: 0 },
+    { Equipe: 'Bushin', Gold: 0, Silver: 0, Bronze: 0 },
+    { Equipe: 'Clube de Arte Luta', Gold: 0, Silver: 0, Bronze: 0 },
+    { Equipe: 'Cobra Hapkido', Gold: 0, Silver: 0, Bronze: 0 },
+    { Equipe: 'Dragoes de Hapkido', Gold: 0, Silver: 0, Bronze: 0 },
+    { Equipe: 'Fenix', Gold: 0, Silver: 0, Bronze: 0 },
     { Equipe: 'Hapkido Botto', Gold: 0, Silver: 0, Bronze: 0 },
-    { Equipe: 'Hapkido de Deus', Gold: 0, Silver: 0, Bronze: 0 },
+    { Equipe: 'In Fight Hapkido', Gold: 0, Silver: 0, Bronze: 0 },
+    { Equipe: 'Livre Treino', Gold: 0, Silver: 0, Bronze: 0 },
+    { Equipe: 'Phantera', Gold: 0, Silver: 0, Bronze: 0 },
     { Equipe: 'Tigre Branco', Gold: 0, Silver: 0, Bronze: 0 },
   ];
 
@@ -20,6 +29,7 @@ function App() {
   const [podiumData, setPodiumData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [competitorData, setCompetitorData] = useState([]);
+  const [competitorsCount, setCompetitorsCount] = useState(3)
 
   function score(team) {
     return (
@@ -83,7 +93,7 @@ function App() {
 
     return sortedScores
       .sort((a, b) => b.TotalPoints - a.TotalPoints)
-      .slice(0, 3);
+      .slice(0, competitorsCount);
   };
 
   let baseUrl = 'https://sheetdb.io/api/v1/7i662u4l7a3w5';
@@ -121,7 +131,7 @@ function App() {
       <div className="content">
         <div>
           <div>
-            <h1 className="text-center my-4">Torneio Interno 2023</h1>
+            <h1 className="text-center my-4">Campeonato Baiano - Desafio de Luta Coreana</h1>
             <Flipper flipKey={data.map((item) => item.Equipe).join()}>
               <table className="table1 table-hover">
                 <thead>
@@ -164,8 +174,36 @@ function App() {
               </table>
             </Flipper>
 
+            <div className="d-flex justify-content-center align-items-center mb-3">
+              {isLoading ? (
+                <div className="text-center mt-3">
+                  <FontAwesomeIcon
+                    icon={faSpinner}
+                    spin
+                    size="4x"
+                    style={{ color: 'white' }}
+                  />
+                </div>
+              ) : (
+                <div className="d-flex flex-column align-items-center" >
+                  <button onClick={fetchPodium} className="btn btn-warning mt-3 fs-4">
+                    Atualizar
+                  </button>
+                  <input
+                    type="number"
+                    id="competitorsCount"
+                    className="form-control mt-3"
+                    value={competitorsCount}
+                    onChange={(e) => setCompetitorsCount(parseInt(e.target.value))}
+                    min="1"
+                  />
+              </div>
+                
+              )}
+           </div>
+
             <div>
-              <h3 className="text-center my-4">Top 3</h3>
+              <h3 className="text-center my-4">Melhores Atletas</h3>
               <Flipper
                 flipKey={competitorData
                   .map((item) => item.Atleta + item.Equipe)
@@ -235,52 +273,6 @@ function App() {
                 </table>
               </Flipper>
             </div>
-            <h3 className="text-center my-4">Últimas premiações</h3>
-            <Flipper flipKey={podiumData.join('')}>
-              <table className="table1 table-hover">
-                <thead>
-                  <tr>
-                    <th>Equipe</th>
-                    <th>Atleta</th>
-                    <th>Modalidade</th>
-                    <th>Faixa</th>
-                    <th>Medalha</th>
-                    <th>Categoria</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {podiumData.map((competidor, index) => (
-                    <Flipped key={index} flipId={competidor.Atleta}>
-                      <tr>
-                        <td>{competidor.Equipe}</td>
-                        <td>{competidor.Atleta}</td>
-                        <td>{competidor.Modalidade}</td>
-                        <td>{competidor.Faixa}</td>
-                        <td>{competidor.Medalha}</td>
-                        <td>{competidor.Categoria}</td>
-                      </tr>
-                    </Flipped>
-                  ))}
-                </tbody>
-              </table>
-            </Flipper>
-          </div>
-
-          <div className="d-flex justify-content-center align-items-center mb-3">
-            {isLoading ? (
-              <div className="text-center mt-3">
-                <FontAwesomeIcon
-                  icon={faSpinner}
-                  spin
-                  size="4x"
-                  style={{ color: 'white' }}
-                />
-              </div>
-            ) : (
-              <button onClick={fetchPodium} class="btn btn-warning mt-3 fs-4">
-                Atualizar
-              </button>
-            )}
           </div>
         </div>
       </div>
