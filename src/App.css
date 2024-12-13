@@ -1,0 +1,79 @@
+body {
+  background-image: url('./logo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.67);
+  z-index: -1;
+}
+
+h1, h3 {
+  color: #ffd700 !important; 
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px; 
+}
+
+.table1 {
+  color: black;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: white;
+  border-radius: 10px; 
+  overflow: hidden;
+}
+
+
+.table1 thead tr {
+  background-color: #ffd700 !important;
+}
+
+
+.table1 thead th {
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-align: left;
+  padding: 1rem;
+  border-bottom: 2px solid #fff;
+}
+
+
+.table1 tbody td {
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #fff;
+  font-weight: bold;
+}
+
+
+.table1 tbody tr:hover {
+  background-color: rgba(255, 215, 0, 0.2);
+}
+
+.bronze {
+  color: brown;
+}
+
+.text-muted {
+  color: #d7d7d7 !important;
+}
+
+button {
+  color: #000;
+  font-family: 'Georgia', serif !important;
+  font-weight: bold !important;
+}
