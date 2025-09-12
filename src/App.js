@@ -11,18 +11,18 @@ import { Flipper, Flipped } from 'react-flip-toolkit';
 
 function App() {
   const initialTeams = [
-    { Equipe: 'Arcanjo Miguel', Gold: 0, Silver: 0, Bronze: 0 },
-    { Equipe: 'Black Dragon', Gold: 0, Silver: 0, Bronze: 0 },
-    { Equipe: 'Bushin', Gold: 0, Silver: 0, Bronze: 0 },
+    { Equipe: 'Hapkido Wolf', Gold: 0, Silver: 0, Bronze: 0 },
+    { Equipe: 'Hapkido Bushin', Gold: 0, Silver: 0, Bronze: 0 },
     { Equipe: 'Clube de Arte Luta', Gold: 0, Silver: 0, Bronze: 0 },
-    { Equipe: 'Cobra Hapkido', Gold: 0, Silver: 0, Bronze: 0 },
-    { Equipe: 'Dragoes de Hapkido', Gold: 0, Silver: 0, Bronze: 0 },
-    { Equipe: 'Fenix', Gold: 0, Silver: 0, Bronze: 0 },
+    { Equipe: 'Hapkido Top Team', Gold: 0, Silver: 0, Bronze: 0 },
+    { Equipe: 'Associação Livre Treino', Gold: 0, Silver: 0, Bronze: 0 },
+    { Equipe: 'Hapkido Phoenix', Gold: 0, Silver: 0, Bronze: 0 },
     { Equipe: 'Hapkido Botto', Gold: 0, Silver: 0, Bronze: 0 },
     { Equipe: 'In Fight Hapkido', Gold: 0, Silver: 0, Bronze: 0 },
-    { Equipe: 'Livre Treino', Gold: 0, Silver: 0, Bronze: 0 },
-    { Equipe: 'Phantera', Gold: 0, Silver: 0, Bronze: 0 },
-    { Equipe: 'Tigre Branco', Gold: 0, Silver: 0, Bronze: 0 },
+    { Equipe: 'Arcanjo Miguel', Gold: 0, Silver: 0, Bronze: 0 },
+    { Equipe: 'Hapkido Tigre Branco', Gold: 0, Silver: 0, Bronze: 0 },
+    { Equipe: 'Associação Gamom de Hapkido', Gold: 0, Silver: 0, Bronze: 0 },
+    { Equipe: 'Associação Dragão de Hapkido', Gold: 0, Silver: 0, Bronze: 0 }
   ];
 
   const [data, setData] = useState(initialTeams);
@@ -114,7 +114,7 @@ function App() {
       setData(updatedData);
     } catch (error) {
       if (error.message === 'Request failed with status code 429') {
-        baseUrl = 'https://sheetdb.io/api/v1/903hywz10drfe';
+        baseUrl = 'https://sheetdb.io/api/v1/e4jbbrum5ryqm';
         fetchPodium();
       }
     } finally {
@@ -131,7 +131,7 @@ function App() {
       <div className="content">
         <div>
           <div>
-            <h1 className="text-center my-4">Campeonato Baiano - Desafio de Luta Coreana</h1>
+            <h1 className="text-center my-4">24 Horas de Hapkido</h1>
             <Flipper flipKey={data.map((item) => item.Equipe).join()}>
               <table className="table1 table-hover">
                 <thead>
