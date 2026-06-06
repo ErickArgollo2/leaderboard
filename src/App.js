@@ -14,15 +14,10 @@ function App() {
     { Equipe: 'Hapkido Wolf', Gold: 0, Silver: 0, Bronze: 0 },
     { Equipe: 'Hapkido Bushin', Gold: 0, Silver: 0, Bronze: 0 },
     { Equipe: 'Clube de Arte Luta', Gold: 0, Silver: 0, Bronze: 0 },
-    { Equipe: 'Hapkido Top Team', Gold: 0, Silver: 0, Bronze: 0 },
     { Equipe: 'Associação Livre Treino', Gold: 0, Silver: 0, Bronze: 0 },
-    { Equipe: 'Hapkido Phoenix', Gold: 0, Silver: 0, Bronze: 0 },
+    { Equipe: 'Hapkido Fenix', Gold: 0, Silver: 0, Bronze: 0 },
     { Equipe: 'Hapkido Botto', Gold: 0, Silver: 0, Bronze: 0 },
-    { Equipe: 'In Fight Hapkido', Gold: 0, Silver: 0, Bronze: 0 },
-    { Equipe: 'Arcanjo Miguel', Gold: 0, Silver: 0, Bronze: 0 },
-    { Equipe: 'Hapkido Tigre Branco', Gold: 0, Silver: 0, Bronze: 0 },
-    { Equipe: 'Associação Gamom de Hapkido', Gold: 0, Silver: 0, Bronze: 0 },
-    { Equipe: 'Associação Dragão de Hapkido', Gold: 0, Silver: 0, Bronze: 0 }
+    { Equipe: 'Hapkido Tigre Branco', Gold: 0, Silver: 0, Bronze: 0 }
   ];
 
   const [data, setData] = useState(initialTeams);
